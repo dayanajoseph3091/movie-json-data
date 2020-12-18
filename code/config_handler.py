@@ -3,9 +3,15 @@ from configparser import ConfigParser
 import pyodbc
 
 
-def get_SQLCONFIG():
+def load_config():
+    # Read configuration file
     parser = ConfigParser()
-    parser.read('../dev.ini')  # Read configuration file
+    parser.read('../dev.ini')
+    return parser
+
+
+def get_SQLCONFIG():
+    parser = load_config()
     # Read corresponding file parameters
     _driver = parser.get("db", "driver")
     _database = parser.get("db", "database")
@@ -23,6 +29,11 @@ def ms_sql_connection():
                                        'DATABASE=' + db_name + ';SERVER=' + server_)
     return pyodbc.connect(conn_info)
 
+
+# load json path from configuration file
+def json_path():
+    parser = load_config()
+    return parser.get("json", "movie_list")
 
 ############create .ini file
 

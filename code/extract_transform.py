@@ -1,9 +1,11 @@
 import json
 import pandas as pd
+import config_handler as ch
 
 
 def load():
-    with open("../json/top-rated-movies-02.json") as f:
+
+    with open(ch.json_path()) as f:
         data = json.load(f)
         # print(data)
         df = pd.DataFrame(data)
