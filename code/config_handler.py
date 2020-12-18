@@ -26,13 +26,13 @@ def ms_sql_connection():
 
 ############create .ini file
 
-config = ConfigParser()
-config['db'] = {
-    "driver": "{ODBC Driver 17 for SQL Server}",
-    "database": "Movies_DB",
-    "trusted_Connection": "yes",
-    "server": "(localdb)\MSSQLLocalDB"
-
-}
-with open('../dev.ini', 'w') as f:
-    config.write(f)
+# config = ConfigParser()
+# config['db'] = {
+#     "driver": "{ODBC Driver 17 for SQL Server}",
+#     "database": "Movies_DB",
+#     "trusted_Connection": "yes",
+#     "server": "(localdb)\MSSQLLocalDB"
+#
+# }
+# with open('../dev.ini', 'w') as f:
+#     config.write(f)
