@@ -1,18 +1,9 @@
-import pandas as pd
-import json
-
-import pyodbc
-from dask.dataframe.methods import values
-
-import pyodbc
+import config_handler as db
 
 
-def dbcleanup():
-    conn = pyodbc.connect(
-        'DRIVER={ODBC Driver 17 for SQL Server};TrustServerCertificate=No;DATABASE=Movies_DB;WSID=LAPTOP-BLDSMT2E;APP={Microsoft® Windows® Operating System};Trusted_Connection=Yes;SERVER=(localdb)\MSSQLLocalDB;Description=movies')
-
+def db_cleanup():
+    conn = db.ms_sql_connection()
     cursor = conn.cursor()
-
     cursor.execute("DROP TABLE IF EXISTS [dbo].[Top_rated_Movie]")
     cursor.execute("DROP TABLE IF EXISTS  [dbo].[Movie_Actor_Relationship]")
     cursor.execute("DROP TABLE IF EXISTS  [dbo].[Movie_Genre_Relationship]")
