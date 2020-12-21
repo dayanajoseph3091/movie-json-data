@@ -10,18 +10,18 @@ def load_config():
     return parser
 
 
-def get_SQLCONFIG():
+def get_SqlConfig():
     parser = load_config()
     # Read corresponding file parameters
-    _driver = parser.get("db", "driver")
-    _database = parser.get("db", "database")
-    _trusted_connection = parser.get("db", "trusted_connection")
-    _server = parser.get("db", "server")
-    return _driver, _database, _trusted_connection, _server  # return required parameters
+    driver = parser.get("db", "driver")
+    database = parser.get("db", "database")
+    trusted_connection = parser.get("db", "trusted_connection")
+    server = parser.get("db", "server")
+    return driver, database, trusted_connection, server  # return required parameters
 
 
 def ms_sql_connection():
-    c = get_SQLCONFIG()
+    c = get_SqlConfig()
     driver_ = c[0]
     db_name = c[1]
     server_ = c[3]
